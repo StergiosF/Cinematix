@@ -1,0 +1,10 @@
+.homepage {
+  height: calc(100vh - 6.6rem);
+}
+
+.section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}

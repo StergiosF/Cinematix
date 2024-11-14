@@ -1,0 +1,75 @@
+.pageNotFound {
+  padding: 1.8rem;
+  height: calc(100vh - 10rem);
+}
+
+.pageNotFound section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 10rem;
+}
+
+.pageNotFound div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.pageNotFound section h1 {
+  font-size: 3.6rem;
+  font-weight: 500;
+}
+
+.loader {
+  width: 100%;
+  opacity: 0.9;
+  height: 0.4rem;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+
+.loader::after {
+  content: "";
+  width: 16rem;
+  height: 0.4rem;
+  background: linear-gradient(to right, #ff1361, #c20f4b, #44107a, #2a1969);
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  animation: hitZak 2s ease-in-out infinite alternate;
+}
+
+@keyframes hitZak {
+  0% {
+    left: 0;
+    transform: translateX(-1%);
+  }
+  100% {
+    left: 100%;
+    transform: translateX(-99%);
+  }
+}
+
+.backBtn {
+  background-color: var(--color-brand--2);
+  color: var(--color-light--2);
+  font-size: 2.2rem;
+  padding: 1.2rem 3.2rem;
+  border-radius: 0.6rem;
+  border: none;
+  transition: all 0.3s;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 15px;
+}
+
+.backBtn:hover {
+  color: var(--color-light--3);
+  background-color: var(--color-brand--1);
+}

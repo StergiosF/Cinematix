@@ -1,0 +1,27 @@
+.logo {
+  height: 4.6rem;
+}
+
+.logoFull {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  width: 20rem;
+  padding-right: 2rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.logoFull h1 {
+  text-transform: uppercase;
+  font-size: 2.6rem;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+}
+
+.logoFull a:link,
+.logoFull a:visited {
+  text-decoration: none;
+  color: inherit;
+}

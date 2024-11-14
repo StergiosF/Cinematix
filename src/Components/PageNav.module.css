@@ -1,0 +1,91 @@
+.pageNav {
+  position: sticky;
+  top: 1.8rem;
+  z-index: 99;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 7.8rem;
+  padding: 0 2.4rem;
+  color: var(--color-light--2);
+
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 12px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(9.5px);
+  -webkit-backdrop-filter: blur(9.5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pageNav input {
+  padding: 0 2rem;
+  font-size: 1.8rem;
+  border-radius: 0.8rem;
+  background-color: var(--color-dark--0);
+  border: none;
+  color: var(--color-light--3);
+  transition: all 0.3s;
+  height: 4.8rem;
+  width: 70rem;
+  margin-left: 2rem;
+}
+
+.pageNav input:focus {
+  outline: none;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 8px;
+}
+
+.pageNav li {
+  font-size: 2rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.pageNav li:hover {
+  color: var(--color-light--3);
+}
+
+.pageNav ul {
+  display: flex;
+  align-items: center;
+  gap: 3.2rem;
+  list-style: none;
+}
+
+.pageNav a:link,
+.pageNav a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+.pageNav .loginBtn {
+  background-color: var(--color-brand--2);
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.6rem;
+}
+
+.pageNav .loginBtn:hover {
+  background-color: var(--color-brand--1);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 15px;
+}
+
+.hover {
+  width: max-content;
+  position: relative;
+}
+
+.hover::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  height: 3px;
+  width: 100%;
+  left: 0;
+  background-color: var(--color-brand--2);
+  transition: all 0.2s ease-in-out;
+  transform: scaleX(0);
+}
+
+.hover:hover::after {
+  transform: scaleX(1);
+}

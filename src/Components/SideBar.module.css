@@ -1,0 +1,9 @@
+.sideBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 2px solid var(--color-dark--1);
+  border-top: 2px solid var(--color-dark--1);
+  border-top-right-radius: 1rem;
+  width: 36rem;
+}
