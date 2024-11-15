@@ -26,7 +26,7 @@ function reducer(state, action) {
       return {
         ...state,
         status: "start",
-        results: action.payload,
+        results: action.payload.results,
       };
     case "loading":
       return { ...state, status: "loading" };
@@ -69,7 +69,16 @@ function App() {
 
           const data = await res.json();
 
-          dispatch({ type: "completeFetch", payload: data.results });
+          if (data.results.length < 1) throw new Error("Movie not found");
+
+          dispatch({
+            type: "completeFetch",
+            payload: {
+              results: data.results,
+              totalPages: data.total_pages,
+              totalResults: data.total_results,
+            },
+          });
         } catch (err) {
           dispatch({ type: "error", payload: err.message });
         }

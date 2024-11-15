@@ -3,7 +3,7 @@
   display: grid;
   justify-items: center;
   padding-bottom: 2rem;
-  width: 80%;
+  width: 100%;
   row-gap: 2rem;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
 }

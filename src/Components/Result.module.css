@@ -1,4 +1,4 @@
-.item {
+.result {
   display: flex;
   flex-direction: column;
   gap: 1.4rem;
@@ -9,17 +9,18 @@
   cursor: pointer;
 }
 
-.item:hover {
+.result:hover {
   background-color: var(--color-dark--hover);
   transition: all 0.3s;
 }
 
-.item:hover .imageContainer img {
-  opacity: 0.5;
+.result:hover .imageContainer img {
+  opacity: 0.8;
+  filter: blur(1px);
   transition: all 0.3s;
 }
 
-.item:hover .playBtn {
+.result:hover .playBtn {
   opacity: 0.9;
   transition: all 0.3s;
 }
@@ -53,7 +54,7 @@
   transition: all 0.3s;
 }
 
-.item img {
+.result img {
   border-radius: 0.8rem;
   height: 100%;
   width: 100%;

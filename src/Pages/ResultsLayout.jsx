@@ -6,7 +6,7 @@ import styles from "./ResultsLayout.module.css";
 
 function ResultsLayout({ results, dispatch, userInput, status }) {
   return (
-    <div className={styles.appLayout}>
+    <div className={styles.resultsLayout}>
       <PageNav dispatch={dispatch} userInput={userInput} />
       <section>
         <SideBar />

@@ -8,7 +8,8 @@
 
   --color-dark--hover: #121214;
   --color-dark--0: #1e1e24;
-  --color-dark--1: #2f2d33;
+  --color-dark--1: #312f35;
+  --color-dark--2: #38363b;
 
   --color-light--0: #7e7e7e;
   --color-light--1: #aaa;
@@ -44,21 +45,22 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--color-light--0);
+  background-color: var(--color-dark--1);
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--color-light--0);
+  background-color: var(--color-dark--1);
+
   border-radius: 20px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--color-light--0);
+  background-color: var(--color-dark--1);
   border-radius: 20px;
   border: 6px solid transparent;
   background-clip: content-box;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: var(--color-light--1);
+  background-color: var(--color-dark--2);
 }

@@ -1,9 +1,9 @@
-.appLayout {
+.resultsLayout {
   padding: 1.8rem;
   height: calc(100vh - 10rem);
 }
 
-.appLayout section {
+.resultsLayout section {
   display: flex;
   gap: 2rem;
   height: 100%;

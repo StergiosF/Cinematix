@@ -1,6 +1,6 @@
-import styles from "./Item.module.css";
+import styles from "./Result.module.css";
 
-function Item({ item }) {
+function Result({ result }) {
   const {
     original_title: title,
     name,
@@ -8,14 +8,13 @@ function Item({ item }) {
     release_date: year,
     vote_average: rating,
     poster_path: poster,
-  } = item;
+  } = result;
 
-  const posterFull = `http://image.tmdb.org/t/p/w500/${item.poster_path}`;
-
+  const posterFull = `http://image.tmdb.org/t/p/w500/${result.poster_path}`;
   const noPoster = "/no-cover.png";
 
   return (
-    <div className={styles.item}>
+    <div className={styles.result}>
       <div className={styles.imageContainer}>
         <img src={poster ? posterFull : noPoster} />
         <div>
@@ -64,4 +63,4 @@ function Item({ item }) {
   );
 }
 
-export default Item;
+export default Result;
