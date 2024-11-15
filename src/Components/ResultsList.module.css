@@ -1,8 +1,9 @@
-.movieList {
+.resultsList {
   overflow-y: scroll;
   display: grid;
   justify-items: center;
+  padding-bottom: 2rem;
   width: 80%;
   row-gap: 2rem;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }

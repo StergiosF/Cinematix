@@ -1,20 +1,20 @@
 import Loader from "../Components/Loader";
-import MovieList from "../Components/MovieList";
+import ResultsList from "../Components/ResultsList";
 import PageNav from "../Components/PageNav";
 import SideBar from "../Components/SideBar";
-import styles from "./AppLayout.module.css";
+import styles from "./ResultsLayout.module.css";
 
-function AppLayout({ movies, dispatch, userInput, status }) {
+function ResultsLayout({ results, dispatch, userInput, status }) {
   return (
     <div className={styles.appLayout}>
       <PageNav dispatch={dispatch} userInput={userInput} />
       <section>
         <SideBar />
         {status === "loading" && <Loader />}
-        {status === "start" && <MovieList movies={movies} />}
+        {status === "start" && <ResultsList results={results} />}
       </section>
     </div>
   );
 }
 
-export default AppLayout;
+export default ResultsLayout;

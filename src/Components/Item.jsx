@@ -1,6 +1,6 @@
-import styles from "./Movie.module.css";
+import styles from "./Item.module.css";
 
-function Movie({ movie }) {
+function Item({ item }) {
   const {
     original_title: title,
     name,
@@ -8,14 +8,14 @@ function Movie({ movie }) {
     release_date: year,
     vote_average: rating,
     poster_path: poster,
-  } = movie;
+  } = item;
 
-  const posterFull = `http://image.tmdb.org/t/p/w500/${movie.poster_path}`;
+  const posterFull = `http://image.tmdb.org/t/p/w500/${item.poster_path}`;
 
   const noPoster = "/no-cover.png";
 
   return (
-    <div className={styles.movie}>
+    <div className={styles.item}>
       <div className={styles.imageContainer}>
         <img src={poster ? posterFull : noPoster} />
         <div>
@@ -64,4 +64,4 @@ function Movie({ movie }) {
   );
 }
 
-export default Movie;
+export default Item;

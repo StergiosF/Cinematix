@@ -1,16 +1,15 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Homepage from "./Pages/Homepage";
 import ErrorPage from "./Pages/ErrorPage";
-import AppLayout from "./Pages/AppLayout";
+import ResultsLayout from "./Pages/ResultsLayout";
 import PageNotFound from "./Pages/PageNotFound";
 import { useEffect, useReducer } from "react";
 
 const initialState = {
-  movies: [],
+  results: [],
   userInput: "",
   searched: null,
 
-  // loading, error, start
   status: "home",
   error: null,
 };
@@ -20,11 +19,15 @@ function reducer(state, action) {
     case "reset":
       return { ...initialState };
     case "search":
-      return { ...state, searched: state.userInput, userInput: "" };
+      return { ...state, searched: state.userInput };
     case "input":
       return { ...state, userInput: action.payload };
     case "completeFetch":
-      return { ...state, status: "start", movies: action.payload };
+      return {
+        ...state,
+        status: "start",
+        results: action.payload,
+      };
     case "loading":
       return { ...state, status: "loading" };
     case "error":
@@ -33,16 +36,14 @@ function reducer(state, action) {
 }
 
 function App() {
-  const [{ status, error, movies, userInput, searched }, dispatch] = useReducer(
-    reducer,
-    initialState
-  );
+  const [{ status, error, results, userInput, searched }, dispatch] =
+    useReducer(reducer, initialState);
 
   const URL = `https://api.themoviedb.org/3/search/multi?query=${searched}&include_adult=false&page=1`;
 
   useEffect(
     function () {
-      async function fetchMovies() {
+      async function fetchResults() {
         const OPTIONS = {
           method: "GET",
           headers: {
@@ -73,7 +74,7 @@ function App() {
           dispatch({ type: "error", payload: err.message });
         }
       }
-      fetchMovies();
+      fetchResults();
     },
     [searched, error, URL]
   );
@@ -92,10 +93,10 @@ function App() {
           }
         />
         <Route
-          path="app"
+          path="results"
           element={
-            <AppLayout
-              movies={movies}
+            <ResultsLayout
+              results={results}
               dispatch={dispatch}
               status={status}
               replace

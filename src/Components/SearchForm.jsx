@@ -10,7 +10,7 @@ function SearchForm({ dispatch, userInput }) {
       onSubmit={(e) => {
         e.preventDefault();
         dispatch({ type: "search" });
-        navigate("app");
+        navigate("results");
       }}
     >
       <div>
@@ -26,7 +26,7 @@ function SearchForm({ dispatch, userInput }) {
         className={styles.btn}
         onClick={() => {
           dispatch({ type: "search" });
-          navigate("app");
+          navigate("results");
         }}
       >
         <svg
