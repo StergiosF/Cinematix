@@ -7,7 +7,7 @@ import styles from "./ResultsLayout.module.css";
 function ResultsLayout({ results, dispatch, userInput, status }) {
   return (
     <div className={styles.resultsLayout}>
-      <PageNav dispatch={dispatch} userInput={userInput} />
+      <PageNav dispatch={dispatch} userInput={userInput} status={status} />
       <section>
         <SideBar />
         {status === "loading" && <Loader />}

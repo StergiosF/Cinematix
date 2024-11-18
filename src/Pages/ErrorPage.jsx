@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import styles from "./ErrorPage.module.css";
 
-function ErrorPage({ error }) {
+function ErrorPage({ error, dispatch }) {
   const navigate = useNavigate();
 
   return (
@@ -11,7 +11,14 @@ function ErrorPage({ error }) {
           <h1>{error}</h1>
           <span className={styles.loader}></span>
         </div>
-        <button className={styles.backBtn} onClick={() => navigate("/")}>
+        <button
+          className={styles.backBtn}
+          onClick={(e) => {
+            e.preventDefault();
+            dispatch({ type: "reset" });
+            navigate("/");
+          }}
+        >
           Go Back
         </button>
       </section>

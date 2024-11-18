@@ -8,15 +8,16 @@ function Result({ result }) {
     release_date: year,
     vote_average: rating,
     poster_path: poster,
+    profile_path: profile,
   } = result;
 
-  const posterFull = `http://image.tmdb.org/t/p/w500/${result.poster_path}`;
+  const posterFull = `http://image.tmdb.org/t/p/w500${poster || profile}`;
   const noPoster = "/no-cover.png";
 
   return (
     <div className={styles.result}>
       <div className={styles.imageContainer}>
-        <img src={poster ? posterFull : noPoster} />
+        <img src={poster || profile ? posterFull : noPoster} />
         <div>
           <svg
             className={styles.playBtn}

@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import styles from "./SearchForm.module.css";
 
 function SearchForm({ dispatch, userInput }) {
@@ -10,7 +10,7 @@ function SearchForm({ dispatch, userInput }) {
       onSubmit={(e) => {
         e.preventDefault();
         dispatch({ type: "search" });
-        navigate("results");
+        navigate(`results`);
       }}
     >
       <div>
@@ -22,13 +22,7 @@ function SearchForm({ dispatch, userInput }) {
         />
       </div>
 
-      <button
-        className={styles.btn}
-        onClick={() => {
-          dispatch({ type: "search" });
-          navigate("results");
-        }}
-      >
+      <button className={styles.btn} type="submit">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="32"

@@ -1,8 +1,18 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import LogoFull from "./LogoFull";
 import styles from "./PageNav.module.css";
+import { useEffect } from "react";
 
-function PageNav({ dispatch, userInput }) {
+function PageNav({ dispatch, userInput, status }) {
+  const navigate = useNavigate();
+
+  useEffect(
+    function () {
+      if (status === "error") navigate("/error");
+    },
+    [navigate, status]
+  );
+
   return (
     <nav className={styles.pageNav}>
       <LogoFull />

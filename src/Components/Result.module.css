@@ -16,7 +16,7 @@
 
 .result:hover .imageContainer img {
   opacity: 0.8;
-  filter: blur(1px);
+  filter: blur(1.2px);
   transition: all 0.3s;
 }
 

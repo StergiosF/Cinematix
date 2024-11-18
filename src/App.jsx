@@ -19,7 +19,10 @@ function reducer(state, action) {
     case "reset":
       return { ...initialState };
     case "search":
-      return { ...state, searched: state.userInput };
+      return {
+        ...state,
+        searched: state.userInput,
+      };
     case "input":
       return { ...state, userInput: action.payload };
     case "completeFetch":
@@ -27,11 +30,14 @@ function reducer(state, action) {
         ...state,
         status: "start",
         results: action.payload.results,
+        error: null,
       };
     case "loading":
       return { ...state, status: "loading" };
     case "error":
       return { ...state, status: "error", error: action.payload };
+    default:
+      return state;
   }
 }
 
@@ -69,7 +75,7 @@ function App() {
 
           const data = await res.json();
 
-          if (data.results.length < 1) throw new Error("Movie not found");
+          if (data.results.length <= 1) throw new Error("Movie not found");
 
           dispatch({
             type: "completeFetch",
@@ -98,6 +104,7 @@ function App() {
               status={status}
               dispatch={dispatch}
               userInput={userInput}
+              searched={searched}
             />
           }
         />
@@ -108,11 +115,15 @@ function App() {
               results={results}
               dispatch={dispatch}
               status={status}
+              searched={searched}
               replace
             />
           }
+        ></Route>
+        <Route
+          path="error"
+          element={<ErrorPage error={error} dispatch={dispatch} replace />}
         />
-        <Route path="error" element={<ErrorPage error={error} replace />} />
         <Route path="*" element={<PageNotFound replace />} />
       </Routes>
     </BrowserRouter>
