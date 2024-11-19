@@ -1,4 +1,4 @@
-.result {
+.resultItem {
   display: flex;
   flex-direction: column;
   gap: 1.4rem;
@@ -9,18 +9,18 @@
   cursor: pointer;
 }
 
-.result:hover {
+.resultItem:hover {
   background-color: var(--color-dark--hover);
   transition: all 0.3s;
 }
 
-.result:hover .imageContainer img {
+.resultItem:hover .imageContainer img {
   opacity: 0.8;
   filter: blur(1.2px);
   transition: all 0.3s;
 }
 
-.result:hover .playBtn {
+.resultItem:hover .playBtn {
   opacity: 0.9;
   transition: all 0.3s;
 }
@@ -54,7 +54,7 @@
   transition: all 0.3s;
 }
 
-.result img {
+.resultItem img {
   border-radius: 0.8rem;
   height: 100%;
   width: 100%;

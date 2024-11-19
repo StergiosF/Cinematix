@@ -1,7 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Homepage from "./Pages/Homepage";
-import ErrorPage from "./Pages/ErrorPage";
 import ResultsLayout from "./Pages/ResultsLayout";
+import OverviewPage from "./Pages/OverviewPage";
+import ErrorPage from "./Pages/ErrorPage";
 import PageNotFound from "./Pages/PageNotFound";
 import { useEffect, useReducer } from "react";
 
@@ -119,7 +120,9 @@ function App() {
               replace
             />
           }
-        ></Route>
+        >
+          <Route path=":item" element={<OverviewPage />} />
+        </Route>
         <Route
           path="error"
           element={<ErrorPage error={error} dispatch={dispatch} replace />}

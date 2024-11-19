@@ -1,6 +1,7 @@
-import styles from "./Result.module.css";
+import { Link, useSearchParams } from "react-router-dom";
+import styles from "./ResultItem.module.css";
 
-function Result({ result }) {
+function ResultItem({ resultItem }) {
   const {
     original_title: title,
     name,
@@ -9,13 +10,16 @@ function Result({ result }) {
     vote_average: rating,
     poster_path: poster,
     profile_path: profile,
-  } = result;
+  } = resultItem;
 
   const posterFull = `http://image.tmdb.org/t/p/w500${poster || profile}`;
   const noPoster = "/no-cover.png";
 
   return (
-    <div className={styles.result}>
+    <Link
+      className={styles.resultItem}
+      to={title ? encodeURIComponent(title) : encodeURIComponent(name)}
+    >
       <div className={styles.imageContainer}>
         <img src={poster || profile ? posterFull : noPoster} />
         <div>
@@ -60,8 +64,8 @@ function Result({ result }) {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 
-export default Result;
+export default ResultItem;

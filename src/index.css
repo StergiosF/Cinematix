@@ -33,6 +33,11 @@ body {
   color: var(--color-light--1);
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 /* SCROLLBAR */
 
 ::-webkit-scrollbar {
