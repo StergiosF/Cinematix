@@ -8,6 +8,7 @@ import { useEffect, useReducer } from "react";
 
 const initialState = {
   results: [],
+  totalPages: null,
   userInput: "",
   searched: null,
 
@@ -31,6 +32,7 @@ function reducer(state, action) {
         ...state,
         status: "start",
         results: action.payload.results,
+        totalPages: action.payload.totalPages,
         error: null,
       };
     case "loading":
@@ -43,8 +45,10 @@ function reducer(state, action) {
 }
 
 function App() {
-  const [{ status, error, results, userInput, searched }, dispatch] =
-    useReducer(reducer, initialState);
+  const [
+    { status, error, results, totalPages, userInput, searched },
+    dispatch,
+  ] = useReducer(reducer, initialState);
 
   const URL = `https://api.themoviedb.org/3/search/multi?query=${searched}&include_adult=false&page=1`;
 
@@ -114,6 +118,7 @@ function App() {
           element={
             <ResultsLayout
               results={results}
+              totalPages={totalPages}
               dispatch={dispatch}
               status={status}
               searched={searched}

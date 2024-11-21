@@ -4,14 +4,16 @@ import PageNav from "../Components/PageNav";
 import SideBar from "../Components/SideBar";
 import styles from "./ResultsLayout.module.css";
 
-function ResultsLayout({ results, dispatch, userInput, status }) {
+function ResultsLayout({ results, totalPages, dispatch, userInput, status }) {
   return (
     <div className={styles.resultsLayout}>
       <PageNav dispatch={dispatch} userInput={userInput} status={status} />
       <section>
         <SideBar />
         {status === "loading" && <Loader />}
-        {status === "start" && <ResultsList results={results} />}
+        {status === "start" && (
+          <ResultsList results={results} totalPages={totalPages} />
+        )}
       </section>
     </div>
   );
