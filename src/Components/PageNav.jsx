@@ -20,6 +20,7 @@ function PageNav({ dispatch, userInput, status }) {
         onSubmit={(e) => {
           e.preventDefault();
           dispatch({ type: "search" });
+          navigate(`/results?search=${encodeURIComponent(userInput)}`);
         }}
       >
         <input

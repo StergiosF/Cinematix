@@ -1,16 +1,17 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { useEffect, useReducer } from "react";
 import Homepage from "./Pages/Homepage";
 import ResultsLayout from "./Pages/ResultsLayout";
-import OverviewPage from "./Pages/OverviewPage";
+import DetailsPage from "./Pages/DetailsPage";
 import ErrorPage from "./Pages/ErrorPage";
 import PageNotFound from "./Pages/PageNotFound";
-import { useEffect, useReducer } from "react";
 
 const initialState = {
   results: [],
   totalPages: null,
   userInput: "",
   searched: null,
+  selectedItem: null,
 
   status: "home",
   error: null,
@@ -35,6 +36,8 @@ function reducer(state, action) {
         totalPages: action.payload.totalPages,
         error: null,
       };
+    case "setSelectedItem":
+      return { ...state, selectedItem: action.payload };
     case "loading":
       return { ...state, status: "loading" };
     case "error":
@@ -46,7 +49,7 @@ function reducer(state, action) {
 
 function App() {
   const [
-    { status, error, results, totalPages, userInput, searched },
+    { status, error, results, totalPages, userInput, searched, selectedItem },
     dispatch,
   ] = useReducer(reducer, initialState);
 
@@ -80,7 +83,7 @@ function App() {
 
           const data = await res.json();
 
-          if (data.results.length <= 1) throw new Error("Movie not found");
+          if (data.results.length <= 1) throw new Error("No results found");
 
           dispatch({
             type: "completeFetch",
@@ -120,13 +123,12 @@ function App() {
               results={results}
               totalPages={totalPages}
               dispatch={dispatch}
+              userInput={userInput}
               status={status}
-              searched={searched}
-              replace
             />
           }
         >
-          <Route path=":id" element={<OverviewPage />} />
+          <Route path="" element={<DetailsPage />} />
         </Route>
         <Route
           path="error"

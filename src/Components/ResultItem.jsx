@@ -1,7 +1,9 @@
-import { Link, useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styles from "./ResultItem.module.css";
 
-function ResultItem({ resultItem }) {
+function ResultItem({ resultItem, dispatch }) {
+  const navigate = useNavigate();
+
   const {
     original_title: title,
     name,
@@ -17,7 +19,13 @@ function ResultItem({ resultItem }) {
   const noPoster = "/no-cover.png";
 
   return (
-    <Link className={styles.resultItem} to={encodeURIComponent(id)}>
+    <button
+      className={styles.resultItem}
+      onClick={() => {
+        dispatch({ type: "setSelectedItem", payload: id });
+        navigate(`?details=${id}`);
+      }}
+    >
       <div className={styles.imageContainer}>
         <img src={poster || profile ? posterFull : noPoster} />
         <div>
@@ -62,7 +70,7 @@ function ResultItem({ resultItem }) {
           </div>
         </div>
       </div>
-    </Link>
+    </button>
   );
 }
 

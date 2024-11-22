@@ -7,7 +7,7 @@ function SideBar() {
         <option>
           <p>
             Short By
-            <span>Icon</span>
+            <span> Icon</span>
           </p>
         </option>
       </select>

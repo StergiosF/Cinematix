@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styles from "./SearchForm.module.css";
 
 function SearchForm({ dispatch, userInput }) {
@@ -10,7 +10,7 @@ function SearchForm({ dispatch, userInput }) {
       onSubmit={(e) => {
         e.preventDefault();
         dispatch({ type: "search" });
-        navigate(`results`);
+        navigate(`/results?search=${encodeURIComponent(userInput)}`);
       }}
     >
       <div>
