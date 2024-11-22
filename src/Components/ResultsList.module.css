@@ -11,32 +11,3 @@
   row-gap: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
 }
-
-.pages {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  border-top: 2px solid var(--color-dark--2);
-}
-
-.pages button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 3.4rem;
-  height: 3.4rem;
-  margin: 2rem 0;
-  font-size: 1.4rem;
-  color: var(--color-light--2);
-  background-color: transparent;
-  border: 2px solid var(--color-brand--2);
-  border-radius: 50%;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.pages button:hover {
-  background-color: var(--color-brand--2);
-  color: var(--color-light--3);
-}

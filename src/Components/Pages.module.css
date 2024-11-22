@@ -1,0 +1,36 @@
+.pages {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  border-top: 2px solid var(--color-dark--2);
+}
+
+.pages .btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.4rem;
+  height: 3.4rem;
+  margin: 2.2rem 0;
+  font-size: 1.4rem;
+  color: var(--color-light--2);
+  background-color: transparent;
+  border: 2px solid var(--color-brand--2);
+  border-radius: 50%;
+  opacity: 0.9;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.pages .btn:hover {
+  background-color: var(--color-brand--2);
+  color: var(--color-light--3);
+  opacity: 1;
+}
+
+.pages .btn .active {
+  background-color: var(--color-brand--2);
+  color: var(--color-light--3);
+  opacity: 1;
+}

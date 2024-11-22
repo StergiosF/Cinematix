@@ -1,3 +1,4 @@
+import Pages from "./Pages";
 import ResultItem from "./ResultItem";
 import styles from "./ResultsList.module.css";
 
@@ -9,14 +10,7 @@ function ResultsList({ results, totalPages }) {
           <ResultItem resultItem={resultItem} key={resultItem.id} />
         ))}
       </div>
-      <div className={styles.pages}>
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
-        <button>4</button>
-        <button>...</button>
-        <button>{totalPages}</button>
-      </div>
+      <Pages totalPages={totalPages} />
     </div>
   );
 }

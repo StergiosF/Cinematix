@@ -126,7 +126,7 @@ function App() {
             />
           }
         >
-          <Route path=":item" element={<OverviewPage />} />
+          <Route path=":id" element={<OverviewPage />} />
         </Route>
         <Route
           path="error"

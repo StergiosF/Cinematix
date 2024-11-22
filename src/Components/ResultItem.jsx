@@ -10,16 +10,14 @@ function ResultItem({ resultItem }) {
     vote_average: rating,
     poster_path: poster,
     profile_path: profile,
+    id,
   } = resultItem;
 
   const posterFull = `http://image.tmdb.org/t/p/w500${poster || profile}`;
   const noPoster = "/no-cover.png";
 
   return (
-    <Link
-      className={styles.resultItem}
-      to={title ? encodeURIComponent(title) : encodeURIComponent(name)}
-    >
+    <Link className={styles.resultItem} to={encodeURIComponent(id)}>
       <div className={styles.imageContainer}>
         <img src={poster || profile ? posterFull : noPoster} />
         <div>
