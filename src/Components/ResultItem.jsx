@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import styles from "./ResultItem.module.css";
 
-function ResultItem({ resultItem, dispatch }) {
+function ResultItem({ dispatch, resultItem }) {
   const navigate = useNavigate();
 
   const {
@@ -22,8 +22,8 @@ function ResultItem({ resultItem, dispatch }) {
     <button
       className={styles.resultItem}
       onClick={() => {
-        dispatch({ type: "setSelectedItem", payload: id });
         navigate(`?details=${id}`);
+        dispatch({ type: "clearInput" });
       }}
     >
       <div className={styles.imageContainer}>

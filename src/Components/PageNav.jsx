@@ -36,6 +36,9 @@ function PageNav({ dispatch, userInput, status }) {
         <li className={styles.hover}>
           <NavLink>Series</NavLink>
         </li>
+        <li className={styles.hover}>
+          <NavLink>Watchlist</NavLink>
+        </li>
         <li className={styles.loginBtn}>
           <NavLink>Login</NavLink>
         </li>

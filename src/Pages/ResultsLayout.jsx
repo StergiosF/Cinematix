@@ -1,9 +1,4 @@
-import {
-  Outlet,
-  useLocation,
-  useParams,
-  useSearchParams,
-} from "react-router-dom";
+import { Outlet, useLocation, useSearchParams } from "react-router-dom";
 import Loader from "../Components/Loader";
 import ResultsList from "../Components/ResultsList";
 import PageNav from "../Components/PageNav";

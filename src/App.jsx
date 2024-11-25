@@ -11,7 +11,6 @@ const initialState = {
   totalPages: null,
   userInput: "",
   searched: null,
-  selectedItem: null,
 
   status: "home",
   error: null,
@@ -28,6 +27,8 @@ function reducer(state, action) {
       };
     case "input":
       return { ...state, userInput: action.payload };
+    case "clearInput":
+      return { ...state, userInput: "" };
     case "completeFetch":
       return {
         ...state,
@@ -49,7 +50,7 @@ function reducer(state, action) {
 
 function App() {
   const [
-    { status, error, results, totalPages, userInput, searched, selectedItem },
+    { status, error, results, totalPages, userInput, searched },
     dispatch,
   ] = useReducer(reducer, initialState);
 
@@ -128,7 +129,16 @@ function App() {
             />
           }
         >
-          <Route path="" element={<DetailsPage />} />
+          <Route
+            path=""
+            element={
+              <DetailsPage
+                dispatch={dispatch}
+                userInput={userInput}
+                status={status}
+              />
+            }
+          />
         </Route>
         <Route
           path="error"

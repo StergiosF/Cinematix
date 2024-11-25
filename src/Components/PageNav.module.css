@@ -32,7 +32,7 @@
 
 .pageNav input:focus {
   outline: none;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 8px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 6px 10px;
 }
 
 .pageNav li {
@@ -48,7 +48,7 @@
 .pageNav ul {
   display: flex;
   align-items: center;
-  gap: 3.2rem;
+  gap: 2.8rem;
   list-style: none;
 }
 
