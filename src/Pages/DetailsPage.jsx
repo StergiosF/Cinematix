@@ -25,7 +25,6 @@ function DetailsPage({ dispatch, userInput, status }) {
         };
 
         try {
-          // dispatch({ type: "loading" });
           setDetails({ status: "loading" });
 
           const delayPromise = new Promise((resolve) =>
@@ -38,26 +37,19 @@ function DetailsPage({ dispatch, userInput, status }) {
           if (!res.ok) throw new Error("Error trying fetching details");
 
           const data = await res.json();
-          console.log(data);
           setDetails({
             status: "start",
-            title: data.original_title
-              ? data.original_title
-              : data.original_name,
+            title: data.title ? data.title : data.name,
             rating: data.vote_average,
             releaseDate: data.release_date,
             firstAirDate: data.first_air_date,
             genres: data.genres,
             runtime: data.runtime,
+            episodes: data.number_of_episodes,
             description: data.overview,
-            poster: data.backdrop_path
-              ? data.backdrop_path
-              : data.belongs_to_collection.backdrop_path,
-            profile: data.profile_path,
+            backdrop: data.backdrop_path,
           });
-          document.title = `${
-            data.original_title ? data.original_title : data.original_name
-          } - Cinematix`;
+          document.title = `${data.title ? data.title : data.name} - Cinematix`;
         } catch (err) {
           dispatch({ type: "error", payload: err.message });
         }
@@ -67,11 +59,7 @@ function DetailsPage({ dispatch, userInput, status }) {
     [dispatch, type, id]
   );
 
-  const backImage = `https://image.tmdb.org/t/p/original/${
-    details.poster || details.profile
-  }`;
-
-  const noImage = "";
+  const image = details.backdrop && details.backdrop;
 
   return (
     <>
@@ -83,7 +71,11 @@ function DetailsPage({ dispatch, userInput, status }) {
             <div
               className={styles.image}
               style={{
-                backgroundImage: `url(${backImage ? backImage : noImage})`,
+                background: `${
+                  image
+                    ? `url(https://image.tmdb.org/t/p/original/${image})`
+                    : "#c20f4b"
+                } `,
               }}
             >
               <div className={styles.top}></div>
@@ -127,17 +119,26 @@ function DetailsPage({ dispatch, userInput, status }) {
                   </p>
                   <span>&#x2022;</span>
                   <p className={styles.categories}>
-                    {details.genres &&
-                      details.genres.map((genre) => genre.name).join(", ")}
+                    {details.genres && details.genres.length > 1
+                      ? details.genres.map((genre) => genre.name).join(", ")
+                      : "N/A"}
                   </p>
                   <span>&#x2022;</span>
                   <p className={styles.time}>
-                    {Math.floor(details.runtime / 60)}h {details.runtime % 60}m
+                    {details.runtime
+                      ? `${Math.floor(details.runtime / 60)}h ${
+                          details.runtime % 60
+                        }m`
+                      : details.episodes
+                      ? `${details.episodes} ep`
+                      : "N/A"}
                   </p>
                 </div>
               </div>
               <div className={styles.descriptionContainer}>
-                <p className={styles.description}>{details.description}</p>
+                <p className={styles.description}>
+                  {details.description ? details.description : "N/A"}
+                </p>
                 <div className={styles.cast}></div>
               </div>
               <div className={styles.btnContainer}>

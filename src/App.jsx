@@ -23,6 +23,7 @@ function reducer(state, action) {
     case "reset":
       return { ...initialState };
     case "search":
+      document.title = "Cinematix";
       return {
         ...state,
         searched: state.userInput,
@@ -86,14 +87,21 @@ function App() {
 
           const data = await res.json();
 
+          console.log(data);
+
           if (data.results.length <= 1) throw new Error("No results found");
+
+          const results = data.results.filter(
+            (item) => item.media_type != "person"
+          );
+
+          console.log(results);
 
           dispatch({
             type: "completeFetch",
             payload: {
-              results: data.results,
+              results: results,
               totalPages: data.total_pages,
-              totalResults: data.total_results,
             },
           });
         } catch (err) {

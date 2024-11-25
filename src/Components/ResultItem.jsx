@@ -1,6 +1,5 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styles from "./ResultItem.module.css";
-import { useEffect } from "react";
 
 function ResultItem({ dispatch, resultItem }) {
   const navigate = useNavigate();
