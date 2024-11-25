@@ -7,11 +7,13 @@ import ErrorPage from "./Pages/ErrorPage";
 import PageNotFound from "./Pages/PageNotFound";
 
 const initialState = {
+  // Main
   results: [],
   totalPages: null,
   userInput: "",
   searched: null,
 
+  // Config
   status: "home",
   error: null,
 };

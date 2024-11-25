@@ -1,5 +1,6 @@
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import styles from "./ResultItem.module.css";
+import { useEffect } from "react";
 
 function ResultItem({ dispatch, resultItem }) {
   const navigate = useNavigate();
@@ -15,14 +16,14 @@ function ResultItem({ dispatch, resultItem }) {
     id,
   } = resultItem;
 
-  const posterFull = `http://image.tmdb.org/t/p/w500${poster || profile}`;
+  const posterFull = `https://image.tmdb.org/t/p/w500/${poster || profile}`;
   const noPoster = "/no-cover.png";
 
   return (
     <button
       className={styles.resultItem}
       onClick={() => {
-        navigate(`?details=${id}`);
+        navigate(`?details=${id}&type=${type}`);
         dispatch({ type: "clearInput" });
       }}
     >
