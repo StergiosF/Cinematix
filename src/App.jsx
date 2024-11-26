@@ -12,6 +12,7 @@ const initialState = {
   totalPages: null,
   userInput: "",
   searched: null,
+  activePage: 1,
 
   // Config
   status: "home",
@@ -27,6 +28,7 @@ function reducer(state, action) {
       return {
         ...state,
         searched: state.userInput,
+        activePage: 1,
       };
     case "input":
       return { ...state, userInput: action.payload };
@@ -42,6 +44,8 @@ function reducer(state, action) {
       };
     case "setSelectedItem":
       return { ...state, selectedItem: action.payload };
+    case "changePage":
+      return { ...state, activePage: action.payload };
     case "loading":
       return { ...state, status: "loading" };
     case "error":
@@ -53,11 +57,11 @@ function reducer(state, action) {
 
 function App() {
   const [
-    { status, error, results, totalPages, userInput, searched },
+    { status, error, results, totalPages, userInput, searched, activePage },
     dispatch,
   ] = useReducer(reducer, initialState);
 
-  const URL = `https://api.themoviedb.org/3/search/multi?query=${searched}&include_adult=false&page=1`;
+  const URL = `https://api.themoviedb.org/3/search/multi?query=${searched}&include_adult=false&page=${activePage}`;
 
   useEffect(
     function () {
@@ -87,21 +91,17 @@ function App() {
 
           const data = await res.json();
 
-          console.log(data);
-
           if (data.results.length <= 1) throw new Error("No results found");
 
           const results = data.results.filter(
             (item) => item.media_type != "person"
           );
 
-          console.log(results);
-
           dispatch({
             type: "completeFetch",
             payload: {
               results: results,
-              totalPages: data.total_pages,
+              totalPages: data.total_pages <= 30 ? data.total_pages : 30,
             },
           });
         } catch (err) {
@@ -136,6 +136,7 @@ function App() {
               dispatch={dispatch}
               userInput={userInput}
               status={status}
+              activePage={activePage}
             />
           }
         >

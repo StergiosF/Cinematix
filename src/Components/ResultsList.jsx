@@ -2,7 +2,7 @@ import Pages from "./Pages";
 import ResultItem from "./ResultItem";
 import styles from "./ResultsList.module.css";
 
-function ResultsList({ results, totalPages, dispatch }) {
+function ResultsList({ results, totalPages, dispatch, activePage }) {
   return (
     <div className={styles.container}>
       <div className={styles.resultsList}>
@@ -14,7 +14,11 @@ function ResultsList({ results, totalPages, dispatch }) {
           />
         ))}
       </div>
-      <Pages totalPages={totalPages} />
+      <Pages
+        totalPages={totalPages}
+        activePage={activePage}
+        dispatch={dispatch}
+      />
     </div>
   );
 }

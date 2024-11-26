@@ -6,7 +6,14 @@ import SideBar from "../Components/SideBar";
 import styles from "./ResultsLayout.module.css";
 import { useEffect } from "react";
 
-function ResultsLayout({ results, totalPages, dispatch, userInput, status }) {
+function ResultsLayout({
+  results,
+  totalPages,
+  dispatch,
+  userInput,
+  status,
+  activePage,
+}) {
   const [searchParams] = useSearchParams();
   const location = useLocation();
 
@@ -37,6 +44,7 @@ function ResultsLayout({ results, totalPages, dispatch, userInput, status }) {
                 results={results}
                 totalPages={totalPages}
                 dispatch={dispatch}
+                activePage={activePage}
               />
             )}
           </section>
