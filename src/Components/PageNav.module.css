@@ -1,7 +1,7 @@
 .pageNav {
   position: sticky;
   top: 1.8rem;
-  z-index: 99;
+  z-index: 4;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -62,11 +62,18 @@
   background-color: var(--color-brand--2);
   padding: 0.6rem 1.2rem;
   border-radius: 0.6rem;
+  font-size: inherit;
+  color: inherit;
+  border: none;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
 }
 
 .pageNav .loginBtn:hover {
   background-color: var(--color-brand--1);
   box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 15px;
+  cursor: pointer;
 }
 
 .hover {

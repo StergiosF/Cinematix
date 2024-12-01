@@ -1,0 +1,163 @@
+.loginForm {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+  background-color: var(--color-dark--hover);
+  color: var(--color-light--3);
+  font-family: inherit;
+  height: max-content;
+  width: 40rem;
+  z-index: 9;
+  padding: 4.4rem 2.6rem;
+  border-radius: 0.8rem;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: none;
+  border: none;
+}
+
+.closeBtn svg {
+  fill: var(--color-light--1);
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.closeBtn svg:hover {
+  fill: #fff;
+}
+
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-bottom: 8rem;
+}
+
+.titleContainer h1 {
+  font-size: 3rem;
+  font-weight: 500;
+}
+
+.titleContainer p {
+  font-size: 1.6rem;
+  color: var(--color-light--1);
+}
+
+.loginInfoContainer {
+  width: 100%;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2.6rem;
+}
+
+.loginInfoInput {
+  width: 100%;
+}
+
+.loginInfoInput p {
+  font-size: 1.4rem;
+  margin-bottom: 0.8rem;
+}
+
+.loginInfoInput input {
+  width: 100%;
+  font-size: 1.4rem;
+  padding: 0 1rem;
+  height: 4rem;
+  background-color: var(--color-dark--1);
+  color: var(--color-light--3);
+  border: none;
+  border-radius: 0.4rem;
+}
+
+.loginInfoInput input::placeholder {
+  color: var(--color-light--2);
+}
+
+.loginInfoInput input:focus {
+  outline: none;
+}
+
+.smallInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1.2rem;
+  margin-bottom: 8rem;
+  font-size: 1.2rem;
+}
+
+.checkContainer {
+  display: flex;
+  align-content: center;
+  gap: 1rem;
+}
+
+.forgotBtn {
+  background: none;
+  color: var(--color-light--3);
+  border: none;
+  border-bottom: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.forgotBtn:hover {
+  border-bottom: 1px solid var(--color-light--3);
+  color: #fff;
+}
+
+.signInBtn {
+  width: 100%;
+  padding: 1rem;
+  font-size: 2rem;
+  font-family: inherit;
+  background-color: var(--color-brand--2);
+  color: var(--color-light--3);
+  border: none;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.signInBtn:hover {
+  background-color: var(--color-brand--1);
+  color: #fff;
+}
+
+.noAcc {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-top: 2rem;
+}
+
+.noAcc p {
+  font-size: 1.4rem;
+}
+
+.noAcc button {
+  background: none;
+  color: var(--color-brand--2);
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-family: inherit;
+  font-size: 1.4rem;
+  transition: all 0.3s;
+}
+
+.noAcc button:hover {
+  color: var(--color-brand--1);
+}

@@ -14,6 +14,10 @@ const initialState = {
   searched: null,
   activePage: 1,
 
+  // Login
+  isLoginOpen: false,
+  test: false,
+
   // Config
   status: "home",
   error: null,
@@ -46,6 +50,8 @@ function reducer(state, action) {
       return { ...state, selectedItem: action.payload };
     case "changePage":
       return { ...state, activePage: action.payload };
+    case "toggleLogin":
+      return { ...state, isLoginOpen: !state.isLoginOpen };
     case "loading":
       return { ...state, status: "loading" };
     case "error":
@@ -57,7 +63,16 @@ function reducer(state, action) {
 
 function App() {
   const [
-    { status, error, results, totalPages, userInput, searched, activePage },
+    {
+      status,
+      error,
+      results,
+      totalPages,
+      userInput,
+      searched,
+      activePage,
+      isLoginOpen,
+    },
     dispatch,
   ] = useReducer(reducer, initialState);
 
@@ -137,6 +152,7 @@ function App() {
               userInput={userInput}
               status={status}
               activePage={activePage}
+              isLoginOpen={isLoginOpen}
             />
           }
         >
@@ -147,6 +163,7 @@ function App() {
                 dispatch={dispatch}
                 userInput={userInput}
                 status={status}
+                isLoginOpen={isLoginOpen}
               />
             }
           />

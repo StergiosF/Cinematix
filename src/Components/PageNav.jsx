@@ -3,7 +3,7 @@ import LogoFull from "./LogoFull";
 import styles from "./PageNav.module.css";
 import { useEffect } from "react";
 
-function PageNav({ dispatch, userInput, status }) {
+function PageNav({ dispatch, userInput, status, isLoginOpen }) {
   const navigate = useNavigate();
 
   useEffect(
@@ -13,8 +13,15 @@ function PageNav({ dispatch, userInput, status }) {
     [navigate, status]
   );
 
+  const loginOpen = {
+    opacity: "0.4",
+    filter: "blur(1.6px)",
+    pointerEvents: "none",
+    userSelect: "none",
+  };
+
   return (
-    <nav className={styles.pageNav}>
+    <nav className={styles.pageNav} style={isLoginOpen ? loginOpen : {}}>
       <LogoFull />
       <form
         onSubmit={(e) => {
@@ -39,8 +46,16 @@ function PageNav({ dispatch, userInput, status }) {
         <li className={styles.hover}>
           <NavLink>Watchlist</NavLink>
         </li>
-        <li className={styles.loginBtn}>
-          <NavLink>Login</NavLink>
+        <li>
+          <button
+            className={styles.loginBtn}
+            onClick={(e) => {
+              e.preventDefault();
+              dispatch({ type: "toggleLogin" });
+            }}
+          >
+            Login
+          </button>
         </li>
       </ul>
     </nav>

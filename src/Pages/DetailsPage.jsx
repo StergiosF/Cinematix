@@ -3,8 +3,9 @@ import { useEffect, useState } from "react";
 import styles from "./DetailsPage.module.css";
 import PageNav from "../Components/PageNav";
 import Loader from "../Components/Loader";
+import LoginForm from "../Components/LoginForm";
 
-function DetailsPage({ dispatch, userInput, status }) {
+function DetailsPage({ dispatch, userInput, status, isLoginOpen }) {
   const [details, setDetails] = useState({});
   const [searchParams] = useSearchParams();
   const id = searchParams.get("details");
@@ -61,10 +62,25 @@ function DetailsPage({ dispatch, userInput, status }) {
 
   const image = details.backdrop && details.backdrop;
 
+  const loginOpen = {
+    opacity: "0.4",
+    filter: "blur(1.6px)",
+    pointerEvents: "none",
+    userSelect: "none",
+  };
+
   return (
     <>
-      <PageNav dispatch={dispatch} userInput={userInput} status={status} />
-      <div className={styles.detailsSection}>
+      <PageNav
+        dispatch={dispatch}
+        userInput={userInput}
+        status={status}
+        isLoginOpen={isLoginOpen}
+      />
+      <div
+        className={styles.detailsSection}
+        style={isLoginOpen ? loginOpen : {}}
+      >
         {details.status === "loading" && <Loader />}
         {details.status === "start" && (
           <>
