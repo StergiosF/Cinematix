@@ -68,6 +68,7 @@
   transition: all 0.3s;
   display: flex;
   align-items: center;
+  outline: none;
 }
 
 .pageNav .loginBtn:hover {
@@ -86,6 +87,7 @@
   position: absolute;
   bottom: -5px;
   height: 3px;
+  border-radius: 9rem;
   width: 100%;
   left: 0;
   background-color: var(--color-brand--2);

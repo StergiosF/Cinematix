@@ -39,6 +39,23 @@ function ResultsLayout({
     userSelect: "none",
   };
 
+  useEffect(
+    function () {
+      function handleCloseLogin(e) {
+        if (e.key === "Escape" && isLoginOpen) {
+          dispatch({ type: "toggleLogin" });
+        }
+      }
+
+      window.addEventListener("keydown", handleCloseLogin);
+
+      return () => {
+        window.removeEventListener("keydown", handleCloseLogin);
+      };
+    },
+    [dispatch, isLoginOpen]
+  );
+
   return (
     <div className={styles.resultsLayout}>
       {isDetailsPage ? (

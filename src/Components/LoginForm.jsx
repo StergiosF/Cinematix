@@ -38,8 +38,8 @@ function LoginForm({ dispatch, isLoginOpen }) {
 
         <div className={styles.smallInfo}>
           <div className={styles.checkContainer}>
-            <input type="checkbox" id="remember" />
-            <label htmlFor="remember">Remember for 30 days</label>
+            <input type="checkbox" id="checkbox" className={styles.checkbox} />
+            <label htmlFor="checkbox">Remember for 30 days</label>
           </div>
           <button className={styles.forgotBtn}>Forgot password</button>
         </div>
