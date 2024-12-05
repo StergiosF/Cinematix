@@ -34,7 +34,7 @@ function ResultsLayout({
 
   const loginOpen = {
     opacity: "0.4",
-    filter: "blur(1.6px)",
+    filter: "blur(2.4px)",
     pointerEvents: "none",
     userSelect: "none",
   };

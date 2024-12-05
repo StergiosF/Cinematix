@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import styles from "./DetailsPage.module.css";
 import PageNav from "../Components/PageNav";
 import Loader from "../Components/Loader";
-import LoginForm from "../Components/LoginForm";
 
 function DetailsPage({ dispatch, userInput, status, isLoginOpen }) {
   const [details, setDetails] = useState({});
@@ -64,7 +63,7 @@ function DetailsPage({ dispatch, userInput, status, isLoginOpen }) {
 
   const loginOpen = {
     opacity: "0.4",
-    filter: "blur(1.6px)",
+    filter: "blur(2.4px)",
     pointerEvents: "none",
     userSelect: "none",
   };

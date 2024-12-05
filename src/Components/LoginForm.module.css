@@ -105,6 +105,11 @@
   display: flex;
   align-content: center;
   gap: 0.8rem;
+  user-select: none;
+}
+
+.checkContainer label {
+  cursor: pointer;
 }
 
 .checkbox {
@@ -113,6 +118,7 @@
   border-radius: 0.4rem;
   width: 1.5rem;
   height: 1.5rem;
+  cursor: pointer;
 }
 
 .checkbox:checked {
@@ -123,7 +129,6 @@
   background: none;
   color: var(--color-brand--2);
   border: none;
-  border-bottom: 1px solid transparent;
   cursor: pointer;
   font-weight: 600;
   font-family: inherit;
