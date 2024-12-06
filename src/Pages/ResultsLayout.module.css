@@ -1,5 +1,6 @@
 .resultsLayout {
-  height: calc(100vh - 14.6rem);
+  padding: 1.8rem;
+  height: calc(100vh - 10.6rem);
   position: relative;
 }
 
@@ -7,7 +8,7 @@
   display: flex;
   gap: 2rem;
   height: 100%;
-  margin-top: 3.2rem;
+  margin-top: 4.6rem;
   overflow-y: hidden;
 }
 

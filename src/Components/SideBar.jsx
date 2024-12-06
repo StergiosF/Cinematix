@@ -12,20 +12,25 @@ function SideBar() {
           <p>Short By</p>
           <form>
             <label>
-              <input type="radio" value="date" />
-              Release Date
-            </label>
-            <label>
-              <input type="radio" value="Series" />
-              Upcoming
-            </label>
-            <label>
-              <input type="radio" value="popularity" />
+              <input
+                type="radio"
+                name="radio"
+                value="popularity"
+                defaultChecked
+              />
               Populariy
             </label>
             <label>
-              <input type="radio" value="rating" />
+              <input type="radio" name="radio" value="rating" />
               Rating
+            </label>
+            <label>
+              <input type="radio" name="radio" value="Series" />
+              Upcoming
+            </label>
+            <label>
+              <input type="radio" name="radio" value="date" />
+              Release Date
             </label>
           </form>
         </div>
@@ -33,11 +38,15 @@ function SideBar() {
           <p>Type</p>
           <form>
             <label>
-              <input type="radio" value="Movies" />
+              <input type="radio" name="radio" value="all" defaultChecked />
+              All
+            </label>
+            <label>
+              <input type="radio" name="radio" value="movies" />
               Movies
             </label>
             <label>
-              <input type="radio" value="Series" />
+              <input type="radio" name="radio" value="series" />
               Series
             </label>
           </form>
