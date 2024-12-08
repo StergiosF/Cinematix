@@ -9,7 +9,7 @@
   gap: 2rem;
   height: 100%;
   margin-top: 4.6rem;
-  overflow-y: hidden;
+  overflow: hidden;
 }
 
 .fadeEnter {

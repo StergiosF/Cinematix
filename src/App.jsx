@@ -14,6 +14,11 @@ const initialState = {
   searched: null,
   activePage: 1,
 
+  // Sidebar
+  sortBy: "popularity",
+  type: "all",
+  genre: "",
+
   // Login
   isLoginOpen: false,
   test: false,
@@ -33,6 +38,9 @@ function reducer(state, action) {
         ...state,
         searched: state.userInput,
         activePage: 1,
+        sortBy: initialState.sortBy,
+        type: initialState.type,
+        genre: initialState.genre,
       };
     case "input":
       return { ...state, userInput: action.payload };
@@ -46,6 +54,19 @@ function reducer(state, action) {
         totalPages: action.payload.totalPages,
         error: null,
       };
+    case "clearFilters":
+      return {
+        ...state,
+        sortBy: initialState.sortBy,
+        type: initialState.type,
+        genre: initialState.genre,
+      };
+    case "changeSortBy":
+      return { ...state, sortBy: action.payload };
+    case "changeType":
+      return { ...state, type: action.payload };
+    case "changeGenre":
+      return { ...state, genre: action.payload };
     case "setSelectedItem":
       return { ...state, selectedItem: action.payload };
     case "changePage":
@@ -72,6 +93,9 @@ function App() {
       searched,
       activePage,
       isLoginOpen,
+      sortBy,
+      type,
+      genre,
     },
     dispatch,
   ] = useReducer(reducer, initialState);
@@ -153,6 +177,9 @@ function App() {
               status={status}
               activePage={activePage}
               isLoginOpen={isLoginOpen}
+              sortBy={sortBy}
+              type={type}
+              genre={genre}
             />
           }
         >

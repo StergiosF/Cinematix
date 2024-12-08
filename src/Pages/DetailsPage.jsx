@@ -62,8 +62,8 @@ function DetailsPage({ dispatch, userInput, status, isLoginOpen }) {
   const image = details.backdrop && details.backdrop;
 
   const loginOpen = {
-    opacity: "0.4",
-    filter: "blur(2.4px)",
+    opacity: "0.2",
+    filter: "blur(2.8px)",
     pointerEvents: "none",
     userSelect: "none",
   };

@@ -2,7 +2,7 @@ import { Outlet, useLocation, useSearchParams } from "react-router-dom";
 import Loader from "../Components/Loader";
 import ResultsList from "../Components/ResultsList";
 import PageNav from "../Components/PageNav";
-import SideBar from "../Components/SideBar";
+import Sidebar from "../Components/SideBar";
 import styles from "./ResultsLayout.module.css";
 import { useEffect } from "react";
 import LoginForm from "../Components/LoginForm";
@@ -16,6 +16,9 @@ function ResultsLayout({
   status,
   activePage,
   isLoginOpen,
+  sortBy,
+  type,
+  genre,
 }) {
   const [searchParams] = useSearchParams();
   const location = useLocation();
@@ -33,8 +36,8 @@ function ResultsLayout({
   const isDetailsPage = !!detailsId;
 
   const loginOpen = {
-    opacity: "0.4",
-    filter: "blur(2.4px)",
+    opacity: "0.2",
+    filter: "blur(2.8px)",
     pointerEvents: "none",
     userSelect: "none",
   };
@@ -69,7 +72,12 @@ function ResultsLayout({
             isLoginOpen={isLoginOpen}
           />
           <section style={isLoginOpen ? loginOpen : {}}>
-            <SideBar />
+            <Sidebar
+              dispatch={dispatch}
+              sortBy={sortBy}
+              type={type}
+              genre={genre}
+            />
             {status === "loading" && <Loader />}
             {status === "start" && (
               <ResultsList
@@ -77,6 +85,9 @@ function ResultsLayout({
                 totalPages={totalPages}
                 dispatch={dispatch}
                 activePage={activePage}
+                sortBy={sortBy}
+                type={type}
+                genre={genre}
               />
             )}
           </section>

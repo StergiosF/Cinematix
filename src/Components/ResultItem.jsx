@@ -8,7 +8,8 @@ function ResultItem({ dispatch, resultItem }) {
     original_title: title,
     name,
     media_type: type,
-    release_date: year,
+    release_date: releaseDate,
+    first_air_date: firstAirDate,
     vote_average: rating,
     poster_path: poster,
     profile_path: profile,
@@ -66,7 +67,12 @@ function ResultItem({ dispatch, resultItem }) {
               </svg>
               {rating ? rating.toFixed(1) : "N/A"}
             </p>
-            <p className={styles.year}>{year ? year.substr(0, 4) : "N/A"}</p>
+            <p className={styles.year}>
+              {type === "movie" &&
+                (releaseDate ? releaseDate.slice(0, 4) : "N/A")}
+              {type === "tv" &&
+                (firstAirDate ? firstAirDate.slice(0, 4) : "N/A")}
+            </p>
           </div>
         </div>
       </div>
