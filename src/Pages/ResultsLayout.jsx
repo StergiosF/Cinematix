@@ -2,7 +2,7 @@ import { Outlet, useLocation, useSearchParams } from "react-router-dom";
 import Loader from "../Components/Loader";
 import ResultsList from "../Components/ResultsList";
 import PageNav from "../Components/PageNav";
-import Sidebar from "../Components/SideBar";
+import Sidebar from "../Components/Sidebar";
 import styles from "./ResultsLayout.module.css";
 import { useEffect } from "react";
 import LoginForm from "../Components/LoginForm";
