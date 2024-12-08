@@ -81,8 +81,8 @@ function DetailsPage({ dispatch, userInput, status, isLoginOpen }) {
   };
 
   const trailerOptions = {
-    height: "240",
     width: "380",
+    height: "240",
   };
 
   return (
@@ -198,12 +198,17 @@ function DetailsPage({ dispatch, userInput, status, isLoginOpen }) {
                 </button>
               </div>
               <div className={styles.trailerContainer}>
-                <div className={styles.trailerVideo}>
+                {trailer ? (
                   <YouTube
                     opts={trailerOptions}
                     videoId={trailer ? trailer.key : null}
                   />
-                </div>
+                ) : (
+                  <img
+                    src="\public\trailer_not_found_2.png"
+                    alt="trailer not found image"
+                  />
+                )}
               </div>
             </div>
           </>
