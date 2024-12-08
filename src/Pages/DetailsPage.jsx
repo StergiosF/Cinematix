@@ -3,9 +3,12 @@ import { useEffect, useState } from "react";
 import styles from "./DetailsPage.module.css";
 import PageNav from "../Components/PageNav";
 import Loader from "../Components/Loader";
+import YouTube from "react-youtube";
 
 function DetailsPage({ dispatch, userInput, status, isLoginOpen }) {
   const [details, setDetails] = useState({});
+  const [trailer, setTrailer] = useState();
+
   const [searchParams] = useSearchParams();
   const id = searchParams.get("details");
   const type = searchParams.get("type");
@@ -14,6 +17,7 @@ function DetailsPage({ dispatch, userInput, status, isLoginOpen }) {
     function () {
       async function fetchDetails() {
         const URL = `https://api.themoviedb.org/3/${type}/${id}?language=en-US`;
+        const trailerURL = `https://api.themoviedb.org/3/${type}/${id}/videos?language=en-US`;
 
         const OPTIONS = {
           method: "GET",
@@ -33,6 +37,7 @@ function DetailsPage({ dispatch, userInput, status, isLoginOpen }) {
           await delayPromise;
 
           const res = await fetch(URL, OPTIONS);
+          const trailerRes = await fetch(trailerURL, OPTIONS);
 
           if (!res.ok) throw new Error("Error trying fetching details");
 
@@ -50,7 +55,14 @@ function DetailsPage({ dispatch, userInput, status, isLoginOpen }) {
             backdrop: data.backdrop_path,
           });
           document.title = `${data.title ? data.title : data.name} - Cinematix`;
+
+          const trailerVideos = await trailerRes.json();
+          const trailer = trailerVideos.results.find(
+            (video) => video.type === "Trailer"
+          );
+          setTrailer(trailer);
         } catch (err) {
+          console.log(err.message);
           dispatch({ type: "error", payload: err.message });
         }
       }
@@ -66,6 +78,11 @@ function DetailsPage({ dispatch, userInput, status, isLoginOpen }) {
     filter: "blur(2.8px)",
     pointerEvents: "none",
     userSelect: "none",
+  };
+
+  const trailerOptions = {
+    height: "240",
+    width: "380",
   };
 
   return (
@@ -179,6 +196,14 @@ function DetailsPage({ dispatch, userInput, status, isLoginOpen }) {
                     <path d="M237.66,117.66l-80,80A8,8,0,0,1,144,192V152.23c-57.1,3.24-96.25,40.27-107.24,52h0a12,12,0,0,1-20.68-9.58c3.71-32.26,21.38-63.29,49.76-87.37,23.57-20,52.22-32.69,78.16-34.91V32a8,8,0,0,1,13.66-5.66l80,80A8,8,0,0,1,237.66,117.66Z"></path>
                   </svg>
                 </button>
+              </div>
+              <div className={styles.trailerContainer}>
+                <div className={styles.trailerVideo}>
+                  <YouTube
+                    opts={trailerOptions}
+                    videoId={trailer ? trailer.key : null}
+                  />
+                </div>
               </div>
             </div>
           </>

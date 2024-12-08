@@ -13,19 +13,6 @@ function ResultsList({
 }) {
   let filteredResults = results;
 
-  console.log(filteredResults);
-  // filteredResults.release_date
-  // filteredResults.first_air_date
-
-  console.log(
-    filteredResults[0].release_date &&
-      Number(filteredResults[0].release_date.slice(0, 4))
-  );
-  console.log(
-    filteredResults[0].first_air_date &&
-      Number(filteredResults[0].first_air_date.slice(0, 4))
-  );
-
   // Short By
   if (sortBy === "popularity") {
     filteredResults.sort((a, b) => b.popularity - a.popularity);

@@ -167,3 +167,7 @@
 .details .btnContainer .btnShare:hover {
   fill: var(--color-light--3);
 }
+
+.trailerContainer {
+  margin-top: 4rem;
+}
