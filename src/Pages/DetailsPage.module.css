@@ -1,7 +1,11 @@
 .detailsSection {
   margin-top: 1.8rem;
-  height: 100%;
+  height: calc(100vh - 11.4em);
   position: relative;
+}
+
+.navContainer {
+  padding: 1.8rem 1.8rem 0 1.8rem;
 }
 
 .image {
@@ -31,7 +35,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 70%;
+  width: 60%;
   height: 100%;
   background: linear-gradient(to right, var(--color-dark--0), rgba(0, 0, 0, 0));
   z-index: 1;
@@ -57,7 +61,7 @@
 }
 
 .details {
-  padding: 10rem 0 0 6rem;
+  padding: 8rem;
   height: 100%;
   width: 120rem;
   color: var(--color-light--2);
@@ -125,6 +129,9 @@
 }
 
 .details .btnContainer .btnPlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: var(--color-brand--2);
   color: var(--color-light--3);
   border: none;
@@ -170,11 +177,12 @@
 }
 
 .trailerContainer {
+  position: absolute;
+  right: 4rem;
+  bottom: 4rem;
   display: flex;
   align-items: center;
   background-color: #030303;
-  margin-top: 4rem;
-  margin-bottom: 4rem;
   width: 38rem;
   height: 24rem;
   box-shadow: rgba(0, 0, 0, 0.6) 0px 0px 15px 3px;

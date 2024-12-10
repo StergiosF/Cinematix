@@ -1,4 +1,4 @@
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import styles from "./DetailsPage.module.css";
 import PageNav from "../Components/PageNav";
@@ -53,6 +53,8 @@ function DetailsPage({ dispatch, userInput, status, isLoginOpen }) {
             episodes: data.number_of_episodes,
             description: data.overview,
             backdrop: data.backdrop_path,
+            poster: data.poster_path,
+            // Create the poster for the backgbround
           });
           document.title = `${data.title ? data.title : data.name} - Cinematix`;
 
@@ -87,12 +89,14 @@ function DetailsPage({ dispatch, userInput, status, isLoginOpen }) {
 
   return (
     <>
-      <PageNav
-        dispatch={dispatch}
-        userInput={userInput}
-        status={status}
-        isLoginOpen={isLoginOpen}
-      />
+      <div className={styles.navContainer}>
+        <PageNav
+          dispatch={dispatch}
+          userInput={userInput}
+          status={status}
+          isLoginOpen={isLoginOpen}
+        />
+      </div>
       <div
         className={styles.detailsSection}
         style={isLoginOpen ? loginOpen : {}}
@@ -174,7 +178,12 @@ function DetailsPage({ dispatch, userInput, status, isLoginOpen }) {
                 <div className={styles.cast}></div>
               </div>
               <div className={styles.btnContainer}>
-                <button className={styles.btnPlay}>Watch Now</button>
+                <Link
+                  className={styles.btnPlay}
+                  to={`/watch?details=${id}&type=${type}`}
+                >
+                  Watch Now
+                </Link>
                 <button className={styles.btnWishlist}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -197,19 +206,19 @@ function DetailsPage({ dispatch, userInput, status, isLoginOpen }) {
                   </svg>
                 </button>
               </div>
-              <div className={styles.trailerContainer}>
-                {trailer ? (
-                  <YouTube
-                    opts={trailerOptions}
-                    videoId={trailer ? trailer.key : null}
-                  />
-                ) : (
-                  <img
-                    src="\public\trailer_not_found_2.png"
-                    alt="trailer not found image"
-                  />
-                )}
-              </div>
+            </div>
+            <div className={styles.trailerContainer}>
+              {trailer ? (
+                <YouTube
+                  opts={trailerOptions}
+                  videoId={trailer ? trailer.key : null}
+                />
+              ) : (
+                <img
+                  src="\public\trailer_not_found_2.png"
+                  alt="trailer not found image"
+                />
+              )}
             </div>
           </>
         )}

@@ -5,6 +5,7 @@ import ResultsLayout from "./Pages/ResultsLayout";
 import DetailsPage from "./Pages/DetailsPage";
 import ErrorPage from "./Pages/ErrorPage";
 import PageNotFound from "./Pages/PageNotFound";
+import WatchPage from "./Pages/WatchPage";
 
 const initialState = {
   // Main
@@ -195,6 +196,17 @@ function App() {
             }
           />
         </Route>
+        <Route
+          path="watch"
+          element={
+            <WatchPage
+              dispatch={dispatch}
+              userInput={userInput}
+              status={status}
+              isLoginOpen={isLoginOpen}
+            />
+          }
+        />
         <Route
           path="error"
           element={<ErrorPage error={error} dispatch={dispatch} replace />}

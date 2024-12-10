@@ -65,12 +65,14 @@ function ResultsLayout({
         <Outlet />
       ) : (
         <>
-          <PageNav
-            dispatch={dispatch}
-            userInput={userInput}
-            status={status}
-            isLoginOpen={isLoginOpen}
-          />
+          <div className={styles.navContainer}>
+            <PageNav
+              dispatch={dispatch}
+              userInput={userInput}
+              status={status}
+              isLoginOpen={isLoginOpen}
+            />
+          </div>
           <section style={isLoginOpen ? loginOpen : {}}>
             <Sidebar
               dispatch={dispatch}
