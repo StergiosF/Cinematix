@@ -215,7 +215,7 @@ function DetailsPage({ dispatch, userInput, status, isLoginOpen }) {
                 />
               ) : (
                 <img
-                  src="\public\trailer_not_found_2.png"
+                  src="\trailer_not_found_2.png"
                   alt="trailer not found image"
                 />
               )}
