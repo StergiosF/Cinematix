@@ -1,6 +1,7 @@
+import GenresList from "./GenresList";
 import styles from "./Sidebar.module.css";
 
-function Sidebar({ dispatch, sortBy, type, genre }) {
+function Sidebar({ dispatch, sortBy, type, genres }) {
   return (
     <div className={styles.sideBar}>
       <div className={styles.headText}>
@@ -92,29 +93,7 @@ function Sidebar({ dispatch, sortBy, type, genre }) {
           </form>
         </div>
         <div className={styles.formContainer}>
-          <p>Genre</p>
-          <form
-            onChange={(e) =>
-              dispatch({ type: "changeGenre", payload: e.target.value })
-            }
-          >
-            <select name="genre">
-              <option value="">Select Genre</option>
-              <option value="adventure">Adventure</option>
-              <option value="fantasy">Fantasy</option>
-              <option value="action">Action</option>
-              <option value="comedy">Comedy</option>
-              <option value="drama">Drama</option>
-              <option value="thriller">Thriller</option>
-              <option value="horror">Horror</option>
-              <option value="romantic">Romantic</option>
-              <option value="family">Family</option>
-              <option value="animation">Animation</option>
-              <option value="musical">Musical</option>
-              <option value="documentary">Documentary</option>
-              <option value="educational">Educational</option>
-            </select>
-          </form>
+          <GenresList dispatch={dispatch} type={type} genres={genres} />
         </div>
       </div>
     </div>

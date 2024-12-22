@@ -18,7 +18,7 @@ const initialState = {
   // Sidebar
   sortBy: "popularity",
   type: "all",
-  genre: "",
+  genres: "",
 
   // Login
   isLoginOpen: false,
@@ -41,7 +41,7 @@ function reducer(state, action) {
         activePage: 1,
         sortBy: initialState.sortBy,
         type: initialState.type,
-        genre: initialState.genre,
+        genres: initialState.genres,
       };
     case "input":
       return { ...state, userInput: action.payload };
@@ -60,14 +60,14 @@ function reducer(state, action) {
         ...state,
         sortBy: initialState.sortBy,
         type: initialState.type,
-        genre: initialState.genre,
+        genres: initialState.genres,
       };
     case "changeSortBy":
       return { ...state, sortBy: action.payload };
     case "changeType":
       return { ...state, type: action.payload };
-    case "changeGenre":
-      return { ...state, genre: action.payload };
+    case "selectedGenres":
+      return { ...state, genres: action.payload };
     case "setSelectedItem":
       return { ...state, selectedItem: action.payload };
     case "changePage":
@@ -96,7 +96,7 @@ function App() {
       isLoginOpen,
       sortBy,
       type,
-      genre,
+      genres,
     },
     dispatch,
   ] = useReducer(reducer, initialState);
@@ -180,7 +180,7 @@ function App() {
               isLoginOpen={isLoginOpen}
               sortBy={sortBy}
               type={type}
-              genre={genre}
+              genres={genres}
             />
           }
         >

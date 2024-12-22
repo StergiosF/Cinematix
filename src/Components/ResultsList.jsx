@@ -9,7 +9,7 @@ function ResultsList({
   activePage,
   sortBy,
   type,
-  genre,
+  genres,
 }) {
   let filteredResults = results;
 
@@ -71,7 +71,7 @@ function ResultsList({
     );
   }
 
-  // Genre
+  // Genres
   return (
     <div className={styles.container}>
       <div className={styles.resultsList}>

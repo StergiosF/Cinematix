@@ -18,7 +18,7 @@ function ResultsLayout({
   isLoginOpen,
   sortBy,
   type,
-  genre,
+  genres,
 }) {
   const [searchParams] = useSearchParams();
   const location = useLocation();
@@ -74,23 +74,25 @@ function ResultsLayout({
             />
           </div>
           <section style={isLoginOpen ? loginOpen : {}}>
-            <Sidebar
-              dispatch={dispatch}
-              sortBy={sortBy}
-              type={type}
-              genre={genre}
-            />
             {status === "loading" && <Loader />}
             {status === "start" && (
-              <ResultsList
-                results={results}
-                totalPages={totalPages}
-                dispatch={dispatch}
-                activePage={activePage}
-                sortBy={sortBy}
-                type={type}
-                genre={genre}
-              />
+              <>
+                <Sidebar
+                  dispatch={dispatch}
+                  sortBy={sortBy}
+                  type={type}
+                  genres={genres}
+                />
+                <ResultsList
+                  results={results}
+                  totalPages={totalPages}
+                  dispatch={dispatch}
+                  activePage={activePage}
+                  sortBy={sortBy}
+                  type={type}
+                  genres={genres}
+                />
+              </>
             )}
           </section>
         </>

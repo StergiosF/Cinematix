@@ -4,7 +4,8 @@ const TMDBEmbedPlayer = ({
   videoId,
   season,
   episode,
-  baseUrl = "https://movieplayer.byethost18.com/se_player.php",
+  // baseUrl = "https://movieplayer.byethost18.com/se_player.php",
+  baseUrl = "https://localhost/movie_player/se_player.php",
 }) => {
   // Construct the embed URL specifically for TMDB
   const buildEmbedUrl = () => {
