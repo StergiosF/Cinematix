@@ -5,7 +5,6 @@ import ResultsLayout from "./Pages/ResultsLayout";
 import DetailsPage from "./Pages/DetailsPage";
 import ErrorPage from "./Pages/ErrorPage";
 import PageNotFound from "./Pages/PageNotFound";
-import WatchPage from "../local_code/Pages/WatchPage";
 
 const initialState = {
   // Main
