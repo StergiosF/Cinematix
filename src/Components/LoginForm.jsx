@@ -28,7 +28,7 @@ function LoginForm({ dispatch, isLoginOpen }) {
         <div className={styles.inputContainer}>
           <div className={styles.loginInfoInput}>
             <p>Email</p>
-            <input type="email" placeholder="Enter your email" />
+            <input type="email" placeholder="Enter your email" required />
           </div>
           <div className={styles.loginInfoInput}>
             <p>Password</p>
@@ -38,7 +38,12 @@ function LoginForm({ dispatch, isLoginOpen }) {
 
         <div className={styles.smallInfo}>
           <div className={styles.checkContainer}>
-            <input type="checkbox" id="checkbox" className={styles.checkbox} />
+            <input
+              type="checkbox"
+              id="checkbox"
+              className={styles.checkbox}
+              required
+            />
             <label htmlFor="checkbox">Remember for 30 days</label>
           </div>
           <button className={styles.forgotBtn}>Forgot password</button>
