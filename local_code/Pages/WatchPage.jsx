@@ -1,10 +1,10 @@
 import { useSearchParams } from "react-router-dom";
 import styles from "./WatchPage.module.css";
-import PageNav from "../Components/PageNav";
+import PageNav from "../../src/Components/PageNav";
 import { CSSTransition } from "react-transition-group";
-import LoginForm from "../Components/LoginForm";
+import LoginForm from "../../src/Components/LoginForm";
 import { useEffect, useState } from "react";
-import Loader from "../Components/Loader";
+import Loader from "../../src/Components/Loader";
 import TMDBEmbedPlayer from "../Components/TMDBEmbedPlayer";
 
 function WatchPage({ dispatch, userInput, status, isLoginOpen }) {

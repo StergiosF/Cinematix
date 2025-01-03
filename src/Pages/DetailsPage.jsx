@@ -1,4 +1,4 @@
-import { Link, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import styles from "./DetailsPage.module.css";
 import PageNav from "../Components/PageNav";
@@ -52,6 +52,7 @@ function DetailsPage({ dispatch, userInput, status, isLoginOpen }) {
             runtime: data.runtime,
             episodes: data.number_of_episodes,
             description: data.overview,
+            homepage: data.homepage,
             backdrop: data.backdrop_path,
             poster: data.poster_path,
             // Create the poster for the backgbround
@@ -83,8 +84,8 @@ function DetailsPage({ dispatch, userInput, status, isLoginOpen }) {
   };
 
   const trailerOptions = {
-    width: "380",
-    height: "240",
+    width: "400",
+    height: "260",
   };
 
   return (
@@ -107,11 +108,10 @@ function DetailsPage({ dispatch, userInput, status, isLoginOpen }) {
             <div
               className={styles.image}
               style={{
-                background: `${
-                  image
-                    ? `url(https://image.tmdb.org/t/p/original/${image})`
-                    : "#c20f4b"
-                } `,
+                backgroundImage: image
+                  ? `url(https://image.tmdb.org/t/p/original/${image})`
+                  : undefined,
+                backgroundColor: image ? undefined : "#c20f4b",
               }}
             >
               <div className={styles.top}></div>
@@ -178,12 +178,13 @@ function DetailsPage({ dispatch, userInput, status, isLoginOpen }) {
                 <div className={styles.cast}></div>
               </div>
               <div className={styles.btnContainer}>
-                <Link
+                <a
+                  href={details.homepage}
+                  target="_blank"
                   className={styles.btnPlay}
-                  to={`/watch?details=${id}&type=${type}`}
                 >
                   Watch Now
-                </Link>
+                </a>
                 <button className={styles.btnWishlist}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
