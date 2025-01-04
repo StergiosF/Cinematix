@@ -5,6 +5,9 @@ import ResultsLayout from "./Pages/ResultsLayout";
 import DetailsPage from "./Pages/DetailsPage";
 import ErrorPage from "./Pages/ErrorPage";
 import PageNotFound from "./Pages/PageNotFound";
+import MoviesPage from "./Pages/MoviesPage";
+import SeriesPage from "./Pages/SeriesPage";
+import WatchListPage from "./Pages/WatchListPage";
 
 const initialState = {
   // Main
@@ -166,6 +169,7 @@ function App() {
             />
           }
         />
+
         <Route
           path="results"
           element={
@@ -187,6 +191,7 @@ function App() {
             path=""
             element={
               <DetailsPage
+                results={results}
                 dispatch={dispatch}
                 userInput={userInput}
                 status={status}
@@ -195,10 +200,60 @@ function App() {
             }
           />
         </Route>
+
+        <Route
+          path="movies"
+          element={
+            <MoviesPage
+              dispatch={dispatch}
+              userInput={userInput}
+              status={status}
+              isLoginOpen={isLoginOpen}
+            />
+          }
+        >
+          <Route
+            path=""
+            element={
+              <DetailsPage
+                dispatch={dispatch}
+                userInput={userInput}
+                status={status}
+                isLoginOpen={isLoginOpen}
+              />
+            }
+          />
+        </Route>
+
+        <Route
+          path="series"
+          element={
+            <SeriesPage
+              dispatch={dispatch}
+              userInput={userInput}
+              status={status}
+              isLoginOpen={isLoginOpen}
+            />
+          }
+        />
+
+        <Route
+          path="watchList"
+          element={
+            <WatchListPage
+              dispatch={dispatch}
+              userInput={userInput}
+              status={status}
+              isLoginOpen={isLoginOpen}
+            />
+          }
+        />
+
         <Route
           path="error"
           element={<ErrorPage error={error} dispatch={dispatch} replace />}
         />
+
         <Route path="*" element={<PageNotFound replace />} />
       </Routes>
     </BrowserRouter>

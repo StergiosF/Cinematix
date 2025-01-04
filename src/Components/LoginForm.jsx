@@ -1,6 +1,24 @@
+import { useEffect } from "react";
 import styles from "./LoginForm.module.css";
 
 function LoginForm({ dispatch, isLoginOpen }) {
+  useEffect(
+    function () {
+      function handleCloseLogin(e) {
+        if (e.key === "Escape" && isLoginOpen) {
+          dispatch({ type: "toggleLogin" });
+        }
+      }
+
+      window.addEventListener("keydown", handleCloseLogin);
+
+      return () => {
+        window.removeEventListener("keydown", handleCloseLogin);
+      };
+    },
+    [dispatch, isLoginOpen]
+  );
+
   return (
     <div className={styles.loginForm}>
       <button

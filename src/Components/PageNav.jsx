@@ -38,13 +38,13 @@ function PageNav({ dispatch, userInput, status, isLoginOpen }) {
       </form>
       <ul>
         <li className={styles.hover}>
-          <NavLink>Movies</NavLink>
+          <NavLink to="/movies">Movies</NavLink>
         </li>
         <li className={styles.hover}>
-          <NavLink>Series</NavLink>
+          <NavLink to="/series">Series</NavLink>
         </li>
         <li className={styles.hover}>
-          <NavLink>Watchlist</NavLink>
+          <NavLink to="/watchlist">Watchlist</NavLink>
         </li>
         <li>
           <button

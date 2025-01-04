@@ -84,8 +84,8 @@ function DetailsPage({ dispatch, userInput, status, isLoginOpen }) {
   };
 
   const trailerOptions = {
-    width: "400",
-    height: "260",
+    width: "380",
+    height: "240",
   };
 
   return (

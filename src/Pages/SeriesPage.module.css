@@ -2,38 +2,36 @@
   padding: 1.8rem 1.8rem 0rem 1.8rem;
 }
 
-.resultsLayout {
-  height: calc(100vh - 14.2rem);
+.seriesPage {
+  height: 100vh;
   position: relative;
 }
 
-.resultsLayout section {
+.seriesPage section {
   display: flex;
-  gap: 2rem;
-  height: 100%;
-  margin-top: 4.6rem;
-  margin-left: 1.8rem;
+  height: calc(100vh - 11.4rem);
+  margin-top: 1.8rem;
   overflow: hidden;
 }
 
 .fadeEnter {
   opacity: 0;
-  transform: scale(0.95);
+  transform: translate(-50%, -40%), scale(0.95);
 }
 
 .fadeEnterActive {
   opacity: 1;
-  transform: scale(1);
+  transform: translate(-50%, -40%), scale(1);
   transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
 }
 
 .fadeExit {
   opacity: 1;
-  transform: scale(1);
+  transform: translate(-50%, -40%), scale(1);
 }
 
 .fadeExitActive {
   opacity: 0;
-  transform: scale(0.95);
+  transform: translate(-50%, -40%), scale(0.95);
   transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
 }
