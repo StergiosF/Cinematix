@@ -55,7 +55,6 @@ function DetailsPage({ dispatch, userInput, status, isLoginOpen }) {
             homepage: data.homepage,
             backdrop: data.backdrop_path,
             poster: data.poster_path,
-            // Create the poster for the backgbround
           });
           document.title = `${data.title ? data.title : data.name} - Cinematix`;
 
