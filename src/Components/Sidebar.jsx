@@ -1,7 +1,6 @@
-import GenresList from "./GenresList";
 import styles from "./Sidebar.module.css";
 
-function Sidebar({ dispatch, sortBy, type, genres }) {
+function Sidebar({ dispatch, sortBy, type }) {
   return (
     <div className={styles.sideBar}>
       <div className={styles.headText}>
@@ -91,9 +90,6 @@ function Sidebar({ dispatch, sortBy, type, genres }) {
               Series
             </label>
           </form>
-        </div>
-        <div className={styles.formContainer}>
-          <GenresList dispatch={dispatch} type={type} genres={genres} />
         </div>
       </div>
     </div>

@@ -9,7 +9,6 @@ function ResultsList({
   activePage,
   sortBy,
   type,
-  genres,
 }) {
   let filteredResults = results;
 
