@@ -5,11 +5,11 @@ A movie web application built with Vite and React to explore and discover movies
 
 ## Deployment
 
-Deployed Website: (cinematix-stergios.netlify.app)
+Deployed Website: [https://cinematix-stergios.netlify.app/](cinematix-stergios.netlify.app)
 
 ## About The Project
 
-[![resultsPage.png](previews/results_page.png)](cinematix-stergios.netlify.app)
+[![Results Page Preview](previews/results_page.png)](https://cinematix-stergios.netlify.app)
 
 Cinematix is a React-based web application designed for movie enthusiasts to search, filter, and browse movies. The application includes features such as popularity sorting, rating-based filtering, and the ability to distinguish between movies and series. The app leverages modern React tools, including React Router for navigation and Vite for bundling.
 
