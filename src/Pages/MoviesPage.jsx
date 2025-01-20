@@ -5,9 +5,11 @@ import { Outlet } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
 import LoginForm from "../Components/LoginForm";
 import Loader from "../Components/Loader";
+import MoviesCarousel from "../Components/MoviesCarousel";
 
 function MoviesPage({ dispatch, userInput, status, isLoginOpen }) {
-  const [trendingMovies, setTrendingMovies] = useState({ status: "loading" });
+  const [moviesStatus, setMoviesStatus] = useState({ status: "loading" });
+  const [carouselData, setCarouselData] = useState();
 
   useEffect(() => {
     dispatch({ type: "clearInput" });
@@ -30,7 +32,7 @@ function MoviesPage({ dispatch, userInput, status, isLoginOpen }) {
         };
 
         try {
-          setTrendingMovies({ status: "loading" });
+          setMoviesStatus({ status: "loading" });
           const delayPromise = new Promise((resolve) =>
             setTimeout(resolve, 500)
           );
@@ -42,23 +44,16 @@ function MoviesPage({ dispatch, userInput, status, isLoginOpen }) {
 
           const data = await res.json();
 
-          setTrendingMovies({ status: "start", results: data.results });
+          setCarouselData(data.results);
+          setMoviesStatus({ status: "start" });
         } catch (err) {
           dispatch({ type: "error", payload: err.message });
         }
       }
       fetchMovies();
     },
-    [dispatch, trendingMoviesURL]
+    [dispatch, setMoviesStatus, trendingMoviesURL]
   );
-
-  const trendingNowMovies =
-    trendingMovies.results &&
-    trendingMovies.results
-      .sort((a, b) => b.popularity - a.popularity)
-      .slice(0, 5);
-
-  console.log(trendingNowMovies);
 
   const loginOpen = {
     opacity: "0.2",
@@ -81,14 +76,17 @@ function MoviesPage({ dispatch, userInput, status, isLoginOpen }) {
               isLoginOpen={isLoginOpen}
             />
           </div>
+
+          {/*  Trending now movies carousel */}
+          {/*  Latest movies */}
+          {/*  Top rated movies */}
+          {/*  Upcoming movies */}
+
           <section style={isLoginOpen ? loginOpen : {}}>
-            {trendingMovies.status === "loading" && <Loader />}
-            {trendingMovies.status === "start" && (
+            {moviesStatus.status === "loading" && <Loader />}
+            {moviesStatus.status === "start" && (
               <>
-                {/*  Trending now movies carousel */}
-                {/*  Latest movies */}
-                {/*  Top rated movies */}
-                {/*  Upcoming movies */}
+                <MoviesCarousel carouselData={carouselData} />
               </>
             )}
           </section>

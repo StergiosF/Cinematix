@@ -1,0 +1,10 @@
+.carouselImages {
+  display: flex;
+  height: 70%;
+  width: 100%;
+}
+
+.carouselImages img {
+  object-fit: cover;
+  width: 100%;
+}

@@ -11,7 +11,8 @@
   display: flex;
   height: calc(100vh - 11.4rem);
   margin-top: 1.8rem;
-  overflow: hidden;
+  padding: 0 2rem;
+  /* overflow-x: hidden; */
 }
 
 .fadeEnter {
