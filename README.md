@@ -49,7 +49,7 @@ Make sure you have Node.js and npm installed on your system.
 1. Clone the repo:
 
    ```bash
-   git clone [Insert your repository link here]
+   git clone https://github.com/StergiosF/Cinematix
    ```
 
 2. Navigate to the project directory:
