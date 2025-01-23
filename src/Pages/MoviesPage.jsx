@@ -78,7 +78,7 @@ function MoviesPage({ dispatch, userInput, status, isLoginOpen }) {
           </div>
 
           {/*  Trending now movies carousel */}
-          {/*  Latest movies */}
+          {/*  Latest movies over carousel*/}
           {/*  Top rated movies */}
           {/*  Upcoming movies */}
 
