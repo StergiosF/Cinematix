@@ -9,7 +9,7 @@
 
 .moviesPage section {
   display: flex;
-  height: calc(100vh - 11.4rem);
+  height: calc(100vh - 11.7rem);
   margin-top: 1.8rem;
   /* overflow-x: hidden; */
 }
