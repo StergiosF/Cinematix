@@ -5,7 +5,7 @@ A movie web application built with Vite and React to explore and discover movies
 
 ## Deployment
 
-Deployed Website: [https://cinematix-stergios.netlify.app](https://cinematix-stergios.netlify.app)
+Deployed Website: https://cinematix-stergios.netlify.app
 
 ## About The Project
 
