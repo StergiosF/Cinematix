@@ -11,7 +11,7 @@ Deployed Website: https://cinematix-stergios.netlify.app
 
 [![Results Page Preview](previews/results_page.png)](https://cinematix-stergios.netlify.app)
 
-Cinematix is a React-based web application designed for movie enthusiasts to search, filter, and browse movies. The application includes features such as popularity sorting, rating-based filtering, and the ability to distinguish between movies and series. It also integrates the YouTube API to fetch and display trailers for movies and series. The app leverages modern React tools, including React Router for navigation and Vite for bundling.
+Cinematix is a React-based web application designed for movie enthusiasts to search, filter, and browse movies. It includes features such as popularity sorting, rating-based filtering, and the ability to distinguish between movies and series. The app integrates the YouTube API to fetch and display trailers for movies and series. It leverages modern React tools, including React Router for navigation and Vite for bundling.
 
 ## Usage
 
