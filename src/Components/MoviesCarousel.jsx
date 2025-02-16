@@ -29,20 +29,16 @@ function MoviesCarousel({ carouselData }) {
     }
   }
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      handleNextMovie();
-    }, 4500);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     handleNextMovie();
+  //   }, 4500);
 
-    return () => clearInterval(interval);
-  }, [handleNextMovie]);
+  //   return () => clearInterval(interval);
+  // }, [handleNextMovie]);
 
   return (
     <div className={styles.carousel}>
-      <div className={styles.top}></div>
-      <div className={styles.left}></div>
-      <div className={styles.right}></div>
-      <div className={styles.bottom}></div>
       <button
         className={`${styles.carouselBtn} ${styles.leftSide}`}
         onClick={() => handlePrevMovie()}
@@ -55,7 +51,12 @@ function MoviesCarousel({ carouselData }) {
       >
         <CaretRight className={styles.caretIcon} size={28} weight="fill" />
       </button>
+      <div className={styles.textContainer}></div>
       <div className={styles.imageContainer}>
+        <div className={styles.top}></div>
+        <div className={styles.left}></div>
+        <div className={styles.right}></div>
+        <div className={styles.bottom}></div>
         {carouselImages.map((image, i) => {
           let className = "";
           if (i === mainCarouselMovie) {
